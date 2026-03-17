@@ -1,87 +1,38 @@
-# Welcome to React Router!
+## Sonic Perpetual Trading UI
 
-A modern, production-ready template for building full-stack React applications using React Router.
+一个基于 React Router 的 Sonic 永续合约交易前端项目。
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+### 部署与访问
 
-## Features
+- **生产环境（Vercel）**：`https://sonic-perpetual-trading-ui-theta.vercel.app`
+- **开发环境**：
+  - 安装依赖：`npm install`
+  - 启动开发服务：`npm run dev`
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+### 技术栈
 
-## Getting Started
+- React + TypeScript
+- React Router v7 应用路由
+- Tailwind CSS
+- Vite 构建
 
-### Installation
+### 脚本说明
 
-Install the dependencies:
+- `npm run dev`：本地开发（HMR）
+- `npm run build`：构建生产版本
+- `npm run start`：使用 `@react-router/serve` 启动构建后的 Node 服务器（本地/自托管场景）
+- `npm run typecheck`：类型检查
+- `npm run lint`：ESLint 检查
 
-```bash
-npm install
-```
+### CI / CD
 
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+- **GitHub Actions**
+  - 工作流：`.github/workflows/ci.yml`
+  - 在 `main` 分支的 `push` 和指向 `main` 的 `PR` 上运行：
+    - `npm run typecheck`
+    - `npm run lint`
+    - `npm run build`
+- **Vercel**
+  - 连接 GitHub 仓库 `Erioser/SonicPerpetualTradingUI`
+  - 每次推送自动构建并部署
+  - PR 自动生成 Preview 环境
